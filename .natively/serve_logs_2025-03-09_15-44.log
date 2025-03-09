@@ -43,3 +43,11 @@
  HTTP  3/9/2025 3:52:40 PM 172.20.0.1 Returned 200 in 4 ms
  HTTP  3/9/2025 3:52:40 PM 172.20.0.1 GET /assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.b62641afc9ab487008e996a5c5865e56.ttf
  HTTP  3/9/2025 3:52:40 PM 172.20.0.1 Returned 200 in 4 ms
+ HTTP  3/9/2025 4:03:22 PM 172.20.0.1 GET /MainTabs/Create
+ HTTP  3/9/2025 4:03:22 PM 172.20.0.1 Returned 404 in 1 ms
+ HTTP  3/9/2025 4:04:39 PM 172.20.0.1 GET /
+ HTTP  3/9/2025 4:04:39 PM 172.20.0.1 Returned 200 in 1 ms
+ HTTP  3/9/2025 4:04:39 PM 172.20.0.1 GET /_expo/static/js/web/index-c34f984048a55b9aaebd2769dc0f67bc.js
+ HTTP  3/9/2025 4:04:39 PM 172.20.0.1 Returned 200 in 4 ms
+ HTTP  3/9/2025 4:04:40 PM 172.20.0.1 GET /assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.b62641afc9ab487008e996a5c5865e56.ttf
+ HTTP  3/9/2025 4:04:40 PM 172.20.0.1 Returned 200 in 3 ms

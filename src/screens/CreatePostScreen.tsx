@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { View, TextInput, Image, TouchableOpacity, StyleSheet, Platform, Text, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export const CreatePostScreen: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+type Props = NativeStackScreenProps<any>;
+
+export const CreatePostScreen: React.FC<Props> = ({ navigation }) => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState<string | null>(null);
 
@@ -46,15 +49,15 @@ export const CreatePostScreen: React.FC<{ onClose: () => void }> = ({ onClose })
   const handlePost = () => {
     // Here you would typically send the post to your backend
     console.log('New post:', { content, image });
-    onClose();
+    setContent('');
+    setImage(null);
+    navigation.navigate('Home');
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-          <MaterialCommunityIcons name="close" size={24} color="#666" />
-        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Create Post</Text>
         <TouchableOpacity 
           style={[styles.postButton, !content ? styles.postButtonDisabled : null]}
           onPress={handlePost}
@@ -114,8 +117,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#EEE',
   },
-  closeButton: {
-    padding: 8,
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1877F2',
   },
   postButton: {
     backgroundColor: '#1877F2',

@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { HomeScreen } from './src/screens/HomeScreen';
 import { FriendsScreen } from './src/screens/FriendsScreen';
 import { CreatePostScreen } from './src/screens/CreatePostScreen';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { TouchableOpacity, Modal, View } from 'react-native';
+import { View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
-const Stack = createNativeStackNavigator();
 
-const TabNavigator = () => {
-  const [isCreatePostVisible, setCreatePostVisible] = useState(false);
-
+export default function App() {
   return (
-    <View style={{ flex: 1 }}>
+    <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: '#1877F2',
@@ -40,13 +36,10 @@ const TabNavigator = () => {
         />
         <Tab.Screen
           name="Create"
-          component={EmptyComponent}
+          component={CreatePostScreen}
           options={{
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons name="plus-box" color={color} size={size} />
-            ),
-            tabBarButton: (props) => (
-              <TouchableOpacity {...props} onPress={() => setCreatePostVisible(true)} />
             ),
           }}
         />
@@ -60,26 +53,6 @@ const TabNavigator = () => {
           }}
         />
       </Tab.Navigator>
-
-      <Modal
-        visible={isCreatePostVisible}
-        animationType="slide"
-        presentationStyle="pageSheet"
-      >
-        <CreatePostScreen onClose={() => setCreatePostVisible(false)} />
-      </Modal>
-    </View>
-  );
-};
-
-const EmptyComponent = () => null;
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="MainTabs" component={TabNavigator} />
-      </Stack.Navigator>
     </NavigationContainer>
   );
 }
