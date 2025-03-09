@@ -1,31 +1,50 @@
 {
   "expo": {
     "name": "Natively",
-    "slug": "Natively",
+    "slug": "natively",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./public/pwa-64x64.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
-      "image": "./public/pwa-512x512.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.Natively"
+      "bundleIdentifier": "com.anonymous.Natively",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Allow $(PRODUCT_NAME) to access your photos to let you share them in posts.",
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera to take photos for posts."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./public/pwa-512x512.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
       "package": "com.anonymous.Natively"
     },
     "web": {
-      "favicon": "./public/pwa-64x64.png",
-      "bundler": "metro"
-    }
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos to let you share them in posts.",
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to take photos for posts."
+        }
+      ]
+    ]
   }
 }

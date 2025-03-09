@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, TextInput, Image, TouchableOpacity, StyleSheet, Platform, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, TextInput, Image, TouchableOpacity, StyleSheet, Platform, Text, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -7,16 +7,39 @@ export const CreatePostScreen: React.FC<{ onClose: () => void }> = ({ onClose })
   const [content, setContent] = useState('');
   const [image, setImage] = useState<string | null>(null);
 
-  const pickImage = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
+  useEffect(() => {
+    (async () => {
+      if (Platform.OS !== 'web') {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          Alert.alert(
+            'Permission needed',
+            'Sorry, we need camera roll permissions to upload images.',
+            [{ text: 'OK' }]
+          );
+        }
+      }
+    })();
+  }, []);
 
-    if (!result.canceled && result.assets[0]) {
-      setImage(result.assets[0].uri);
+  const pickImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [4, 3],
+        quality: 1,
+      });
+
+      if (!result.canceled && result.assets && result.assets[0]) {
+        setImage(result.assets[0].uri);
+      }
+    } catch (error) {
+      Alert.alert(
+        'Error',
+        'There was an error picking the image. Please try again.',
+        [{ text: 'OK' }]
+      );
     }
   };
 
@@ -29,7 +52,7 @@ export const CreatePostScreen: React.FC<{ onClose: () => void }> = ({ onClose })
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={onClose}>
+        <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <MaterialCommunityIcons name="close" size={24} color="#666" />
         </TouchableOpacity>
         <TouchableOpacity 
@@ -65,7 +88,11 @@ export const CreatePostScreen: React.FC<{ onClose: () => void }> = ({ onClose })
       )}
 
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.mediaButton} onPress={pickImage}>
+        <TouchableOpacity 
+          style={styles.mediaButton} 
+          onPress={pickImage}
+          activeOpacity={0.7}
+        >
           <MaterialCommunityIcons name="image" size={24} color="#1877F2" />
           <Text style={styles.mediaButtonText}>Photo</Text>
         </TouchableOpacity>
@@ -86,6 +113,9 @@ const styles = StyleSheet.create({
     padding: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#EEE',
+  },
+  closeButton: {
+    padding: 8,
   },
   postButton: {
     backgroundColor: '#1877F2',
@@ -123,6 +153,7 @@ const styles = StyleSheet.create({
     right: 8,
     backgroundColor: 'rgba(0,0,0,0.5)',
     borderRadius: 12,
+    padding: 4,
   },
   footer: {
     position: 'absolute',

@@ -21,3 +21,25 @@
  HTTP  3/9/2025 3:49:44 PM 172.20.0.1 Returned 200 in 4 ms
  HTTP  3/9/2025 3:49:48 PM 172.20.0.1 GET /MainTabs/Create
  HTTP  3/9/2025 3:49:48 PM 172.20.0.1 Returned 404 in 1 ms
+ HTTP  3/9/2025 3:49:59 PM 172.20.0.1 GET /
+ HTTP  3/9/2025 3:49:59 PM 172.20.0.1 Returned 200 in 2 ms
+ HTTP  3/9/2025 3:49:59 PM 172.20.0.1 GET /_expo/static/js/web/index-8e31c2b1fac1d08721692fa20de1f665.js
+ HTTP  3/9/2025 3:49:59 PM 172.20.0.1 Returned 200 in 1 ms
+ HTTP  3/9/2025 3:50:00 PM 172.20.0.1 GET /assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.b62641afc9ab487008e996a5c5865e56.ttf
+ HTTP  3/9/2025 3:50:00 PM 172.20.0.1 Returned 200 in 7 ms
+ HTTP  3/9/2025 3:50:01 PM 172.20.0.1 GET /MainTabs/Create
+ HTTP  3/9/2025 3:50:01 PM 172.20.0.1 Returned 404 in 1 ms
+ HTTP  3/9/2025 3:50:03 PM 172.20.0.1 GET /
+ HTTP  3/9/2025 3:50:03 PM 172.20.0.1 Returned 200 in 1 ms
+ HTTP  3/9/2025 3:50:03 PM 172.20.0.1 GET /_expo/static/js/web/index-8e31c2b1fac1d08721692fa20de1f665.js
+ HTTP  3/9/2025 3:50:03 PM 172.20.0.1 Returned 200 in 1 ms
+ HTTP  3/9/2025 3:50:04 PM 172.20.0.1 GET /assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.b62641afc9ab487008e996a5c5865e56.ttf
+ HTTP  3/9/2025 3:50:04 PM 172.20.0.1 Returned 200 in 2 ms
+ HTTP  3/9/2025 3:50:17 PM 172.20.0.1 GET /MainTabs/Create
+ HTTP  3/9/2025 3:50:17 PM 172.20.0.1 Returned 404 in 1 ms
+ HTTP  3/9/2025 3:52:40 PM 172.20.0.1 GET /
+ HTTP  3/9/2025 3:52:40 PM 172.20.0.1 Returned 200 in 1 ms
+ HTTP  3/9/2025 3:52:40 PM 172.20.0.1 GET /_expo/static/js/web/index-0c8a97e863b78a0aed651d930191f4d4.js
+ HTTP  3/9/2025 3:52:40 PM 172.20.0.1 Returned 200 in 4 ms
+ HTTP  3/9/2025 3:52:40 PM 172.20.0.1 GET /assets/node_modules/@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.b62641afc9ab487008e996a5c5865e56.ttf
+ HTTP  3/9/2025 3:52:40 PM 172.20.0.1 Returned 200 in 4 ms
